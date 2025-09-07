@@ -1,0 +1,50 @@
+mygame/
+│── main.py
+│── README.md
+│── requirements.txt
+│── resources/
+│     ├── player.png
+│     ├── enemy.png
+│     ├── background.png
+│     └── sound.wav
+import pygame
+import sys
+import os
+
+# Pygame başlat
+pygame.init()
+
+# Ekran boyutu
+WIDTH, HEIGHT = 800, 600
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Resource Based Game")
+
+# Resource yolu
+RESOURCE_DIR = os.path.join(os.path.dirname(__file__), "resources")
+
+def load_image(filename):
+    return pygame.image.load(os.path.join(RESOURCE_DIR, filename))
+
+def load_sound(filename):
+    return pygame.mixer.Sound(os.path.join(RESOURCE_DIR, filename))
+
+# Görselleri yükle
+player_img =player_img = load_image("player.png")
+enemy_img = load_image("enemy.png")
+background_img = load_image("background.png")
+
+# Ses yükle
+sound = load_sound("sound.wav")
+
+# Oyuncu konumu
+player_x, player_y = 400, 300
+
+clock = pygame.time.Clock()
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+        if event.type ==
